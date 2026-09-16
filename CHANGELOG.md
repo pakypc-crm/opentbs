@@ -2,7 +2,126 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.12.3] - 2026-04-23
 
+### Bug fixes
+
+- PHP 8.5 compatibility improved
+  message : « Non-canonical cast (boolean) is deprecated, use the (bool) cast instead. »
+- OPENTBS_READ_ENTITY returns false when find a self closing entity, now return true.
+- OPENTBS_SELECT_HEADER and OPENTBS_SELECT_FOOTER with DOCX raises an error « Cannot load "" ... » if there is not such subfile. Now return false.
+- OPENTBS_SELECT_HEADER and OPENTBS_SELECT_FOOTER with OSD and ODP return false, now return true.
+- OPENTBS_GET_FILES_BY_TYPE may return hidden header/footer for a DOCX.
+
+## [1.12.2] - 2025-11-01
+
+### Enhancements
+
+- more robust XML element search
+- TbsZip 2.18
+
+## [1.12.1] - 2024-03-06
+
+### Enhancements
+
+- OPENTBS_GET_FILES_BY_TYPE supports new keywords : 'all' and 'slidem'
+
+- PPTX : better XML clean for TBS fields recognition.
+
+## [1.12.0] - 2024-01-25
+
+### New feature
+
+- new command OPENTBS_GET_FILES_BY_TYPE
+
+### Enhancements
+
+- PHP 8.2 compatibility improved
+
+### Bug fixes
+
+- OPENTBS_SEARCH_IN_SLIDES for ODP file always return error
+
+## [1.11.3] - 2023-12-02
+
+### Bug fixes
+
+- Two properties turned to public in order to be used by plugins.
+
+## [1.11.2] - 2023-09-29
+
+### Bug fixes
+
+- Picture with Ms Office : changing a picture using parameter 'adjust' can corrupt the XML.
+
+## [1.11.1] - 2023-09-17
+
+### Enhancements
+
+- PHP 8.2 compatibility for subclass TbsZip
+
+## [1.11.0] - 2023-05-15
+
+### Enhancements
+
+- PHP 8.2 compatibility : utf8_encode is deprecated + creation of dynamic property is deprecated.
+
+### Bug fixes
+
+- Charts with MsOffice: merging values or categories that have special characters (like <, >, &) did produce an invalid document.
+  No error is prompted during the merge but an error is prompted by Ms Office when opening the document. 
+
+- Command OPENTBS_GET_CELLS with ODS : it used to get only the first line of a string value. Now it support multi-lines and it take formats off.
+
+### Enhancements
+
+- PHP 8.2 compatibilty : non UTF-8 template will not raise a notice. The UTF-8 encoding feature no longer uses the deprecated PHP function utf8_encode().
+
+## [1.10.7] - 2022-05-03
+
+### Bug fixes
+
+- Charts with MsOffice: merging values that are not empty and not numerical make a document that cannot be opened. Ms Word error : « Word experienced an error trying to open the file ».
+                        Now a fatal OpenTBS error is raised instead.
+
+## [1.10.6] - 2022-02-23
+
+### Bug fixes
+
+- Regression: some few XLSX formulas may keep their cached values or keep beeing dynamic array formulas.
+
+## [1.10.5] - 2022-02-22
+
+### Bug fixes
+
+- Composer : the required version of TBS is updated in order to ensure the compatibility with PHP 8.1.
+
+### Enhancements
+
+- Prevent invalid XLSX when merged sheets have dynamic array formulas (a new feature first released with Office 365 in 2018)
+
+
+## [1.10.4] - 2022-02-07
+
+### Bug fixes
+
+- OPENTBS_CHART : The chart can be located using a TBS field inside the Alt Text property.
+                  Useful because the Title property is no longer editable since Ms Office 2019.
+                  
+### Enhancements
+
+- PHP 8.1 compatibility
+
+## [1.10.3] - 2021-09-21
+
+### New features
+
+- New command OPENTBS_READ_ENTITY.
+
+### Bug fixes
+
+- Command OPENTBS_EDIT_ENTITY didn't work with argument « $SubFile = false ».
+  
 ## [1.10.2] - 2020-11-19
 
 ### Bug fixes
